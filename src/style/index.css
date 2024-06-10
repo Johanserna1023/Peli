@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+*{
+    max-width: 1355px;
+    
+}
+body{
+    background-color: #0f172a;
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+
+html::-webkit-scrollbar{
+  background-color: rgba(15, 23, 42 , .9);
+  width: 10px;
+}
+
+html::-webkit-scrollbar-thumb{
+  background-color: rgba(78, 86, 102, 0.7);
+  border-radius: 20px;
+  
+}
+
+.scroll-categories::-webkit-scrollbar{
+    width: 10px;
+    background-color: rgba(15, 23, 42 , .9);
+}
+.scroll-categories::-webkit-scrollbar-thumb{
+    width: 10px;
+    background-color: rgba(78, 86, 102, 0.7);
+}
+
+/*para cortar la descripcion de la pelicula a cuatro lineas*/
+
+.container-description{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .container-description p{
+    -webkit-line-clamp: 
+  4; 
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+  }
+
+  .container-actor-movies{
+    display:  -webkit-inline;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .container-actor-movies span{
+    -webkit-line-clamp: 
+  1; 
+    -webkit-box-orient: vertical;
+    display: -webkit-inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+  }
+
+  /*hacer que aparezcan los botones de el slider de proximas peliculas*/
+
+  .container-slider-movie:hover  .button{
+   opacity: 1;
+   transition: all .5s;
+   pointer-events: all;
+  }
+
+  .slider-movie:hover  .button{
+    opacity: 1;
+    transition: all .5s;
+    pointer-events: all;
+  }
+
+/*clase para el los botones de la tendecias de la semana*/
+.activo {
+  background-color: #D9254C;
+  transition: .5s all;
+}
+
+/*ANIMACION DE CARGA DE LAS MOVIES*/
+
+.loader-animation{
+  animation: Loader .7s infinite alternate;
+}
+.genres-activo{
+  background-color: #1E293B;
+}
+
+.scroll-bottom::-webkit-scrollbar{
+  background-color: rgba(15, 23, 42 , .9);
+  width: 2px;
+  height: 7px;
+}
+.scroll-bottom::-webkit-scrollbar-thumb{
+  background-color: rgba(78, 86, 102, 0.7);
+  border-radius: 50px;
+}
+@keyframes Loader {
+  0%{
+   background-color: #475569;
+  }
+  50%{
+    background-color: #1E293B;
+  }
+  100%{
+    background-color: #1E293B;
+  }
+}
+
+/*Clases de el boton menu */
+
+.linea-menu{
+  display: block;
+  position: relative;
+  height: 2px;
+  width: 40px;
+  background-color: #f6f6f9;
+  top: -5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transform-origin: 0px 100%;
+  transition: all .4s;
+}
+
+.menu-drop{
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  display: none;
+}
+
+.activa-menu-drop{
+  display: block;
+  transition: .5s display;
+}
+
+.menu-activado{
+  left: 0px;
+  transition: left .3s ease-in-out;
+}
+.activelinea1__bars-menu{
+  transform: rotate(40deg)
+   translate(-2px, 1px);
+}
+.activelinea2__bars-menu{
+  opacity: 0;
+  margin-left: -30px;
+}
+.activelinea3__bars-menu{
+  transform: rotate(-40deg)
+  translate(-2px, 1px);
+}
+
+/*clase de el modal de trailer*/
+
+
+.modal-trailer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 101vh;
+  z-index: 100;   
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(18px);
+  background: rgba(0, 0, 0, .10);
+}
+
+.boton-cerrar-modal{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  right: 0;
+  top: 0;
+  background:#D9254C;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+}
+
+.boton-cerrar-modal::before{
+content: "";
+animation: rotate1 .5s ease-out .1s;
+background-color: #f6f6f9;;
+content: "";
+height: 2px;
+position: absolute;
+transform-origin: center center;
+animation-fill-mode: forwards;
+width: 60%;
+transform: rotate(-40deg);
+}
+
+.boton-cerrar-modal::after{
+  background-color: #f6f6f9;;
+  content: "";
+  height: 2px;
+  position: absolute;
+  transform-origin: center center;
+  width: 60%;
+  transform: rotate(40deg);
+  animation: rotate2 .5s ease-out .1s;
+  animation-fill-mode: forwards;
+  
+}
+@keyframes rotate1 {
+  0%{
+    transform: rotate(0deg);
+  }
+}
+@keyframes rotate2 {
+  0%{
+    transform: rotate(0deg);
+  }
+}
